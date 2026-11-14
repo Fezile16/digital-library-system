@@ -2,7 +2,7 @@
 
 A Django web application that helps a school or community library manage its books, members and loans. It is used by members who borrow books, librarians who run the library, and administrators who manage the system.
 
-**Learner:** Fezile Mtshali · **Student number:** <<student number>> · **Supervisor:** <<supervisor MR Jeff>> (GitHub: osijeff)
+**Learner:** Fezile Mtshali · **Student number:** 10217 · **Supervisor:**  MR Jeff (GitHub: osijeff)
 
 ## Problem
 
