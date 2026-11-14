@@ -1,50 +1,59 @@
-# [Project Name]
+# Digital Library and Book Borrowing System
 
-[One or two sentences: what the system does and who it is for.]
+A Django web application that helps a school or community library manage its books, members and loans. It is used by members who borrow books, librarians who run the library, and administrators who manage the system.
 
-**Learner:** [Full name] · **Student number:** [number] · **Supervisor:** [name]
+**Learner:** Fezile Mtshali · **Student number:** <<student number>> · **Supervisor:** <<supervisor MR Jeff>> (GitHub: osijeff)
 
 ## Problem
 
-[Two or three sentences describing the problem the system solves.]
+Many small libraries still record books and loans in paper registers. Books get lost, nobody knows who has which book, overdue loans are not followed up, and finding a book takes a long time. This system moves the whole process online so that books, members, loans and fines are tracked in one secure place.
 
 ## Features
 
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+- Registration, login, logout and password reset
+- Role-based access for members, librarians and administrators
+- Book and category management (create, view, update, delete) with total and available copies
+- Search and filter books by title, author or category
+- Borrowing and returns, with automatic due dates and a check that a copy is available
+- Overdue fines calculated from the days overdue
+- "My loans" page for members
+- Reports (overdue loans, most borrowed books, books on loan, loans per member) with PDF and CSV export
+- Deployment on PostgreSQL over HTTPS
 
 ## User Roles
 
 | Role | What they can do |
 | --- | --- |
-| [Role 1] | [Permissions] |
-| [Role 2] | [Permissions] |
+| Member | Register, log in, search books, borrow and return books, view their own loans and fines |
+| Librarian | Manage books, categories and member records, record loans and returns, view overdue loans and reports |
+| Administrator | Manage users, roles and system settings through the Django admin |
 
 ## Tech Stack
 
 | Part | Technology |
 | --- | --- |
-| Language | Python [version] |
-| Framework | Django [version] |
-| Database | [SQLite / MySQL / PostgreSQL] |
-| Frontend | [Django templates and Bootstrap / React] |
+| Language | Python <<version, run `python --version`>> |
+| Framework | Django <<version, run `pip show django`>> |
+| Database | SQLite (development), PostgreSQL (production) |
+| Frontend | Django templates and Bootstrap |
+| Reports | ReportLab (PDF), CSV export |
+| Deployment | Gunicorn, WhiteNoise, hosted with HTTPS |
 | Testing | Django test framework |
 
 ## Setup
 
 ### Requirements
 
-- Python [version]
+- Python 3.14.6
 - Git
-- [MySQL / PostgreSQL, if used]
-- [Node.js, if the project has a React frontend]
+- PostgreSQL (production only; development uses SQLite)
+- Django 6.1.1
 
 ### Installation
 
 ```bash
-git clone https://github.com/[username]/[repository].git
-cd [repository]
+git clone https://github.com/Fezile16/digital-library-system.git
+cd digital-library-system
 python -m venv venv
 # Windows
 venv\Scripts\activate
@@ -68,13 +77,16 @@ cp .env.example .env
 | `DJANGO_ALLOWED_HOSTS` | Comma-separated host names |
 | `DB_ENGINE`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT` | Database connection |
 
+Never commit `.env`, passwords or secret keys.
+
 ### Database and demo data
 
 ```bash
 python manage.py migrate
 python manage.py createsuperuser
-python manage.py loaddata [demo_data.json]   # if provided
 ```
+
+Add sample categories, books and members through the admin site at http://127.0.0.1:8000/admin.
 
 ### Run the application
 
@@ -92,7 +104,7 @@ python manage.py test
 
 ## Demo Accounts
 
-Demo accounts are created by the demo data. Ask your supervisor for the login details; do not publish passwords in this file.
+Create demo accounts for each role (member, librarian, administrator) in the admin site. Ask your supervisor for the login details; do not publish passwords in this file.
 
 ## Project Documents
 
